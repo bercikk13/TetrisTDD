@@ -21,7 +21,7 @@ public class Step1_FallingBlocksTest extends Assert {
     private final Board board = new Board(3, 3);
 
 
-    public class A_new_board {
+    public  class A_new_board {
 
         @Test
         public void is_empty() {

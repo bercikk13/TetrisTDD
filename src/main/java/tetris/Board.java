@@ -4,24 +4,40 @@
 
 package tetris;
 
-public class Board {
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
-    private final int rows;
-    private final int columns;
+public class Board implements Grid {
 
-    public Board(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
+
+
+    private char [][] blocks;
+    public Board(int rows, int columns)
+    {
+        blocks = new char[rows][columns];
+                for(char[] tmp : blocks )
+                {
+                    Arrays.fill(tmp,EMPTY);
+                }
+
     }
 
-    public String toString() {
+    public  String toString() {
         String s = "";
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < columns; col++) {
-                s += "?";
+        for (int row = 0; row < rows(); row++) {
+            for (int col = 0; col < columns(); col++) {
+                s += ".";
             }
             s += "\n";
         }
         return s;
+    }
+
+    public int rows() {
+        return blocks.length;
+    }
+
+    public int columns() {
+        return blocks[0].length;
     }
 }
